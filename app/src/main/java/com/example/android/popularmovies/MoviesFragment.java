@@ -59,11 +59,14 @@ public class MoviesFragment extends Fragment {
                 Bundle bundle = new Bundle();
                 bundle.putInt("position", num);
 
+                //MoviesAdapter moviesAdapter = (MoviesAdapter) parent.getItemAtPosition(position)
+
                 Intent intent = new Intent(getActivity(), MovieDetail.class);
+                //intent.putExtra(MovieDetail.)
                 intent.putExtras(bundle);
                 startActivity(intent);
 
-                //Toast.makeText(getContext(), "Pelicula " + pos + " seleccionada", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext()   , "Pelicula " + pos + " seleccionada", Toast.LENGTH_SHORT).show();
 
             }
         });
