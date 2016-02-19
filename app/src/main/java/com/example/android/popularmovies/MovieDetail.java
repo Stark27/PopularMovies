@@ -1,11 +1,10 @@
 package com.example.android.popularmovies;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MovieDetail extends AppCompatActivity {
 
@@ -15,16 +14,18 @@ public class MovieDetail extends AppCompatActivity {
         setContentView(R.layout.activity_movie_detail);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    }
 
-}
+        TextView textView = (TextView) findViewById(R.id.textView);
+        //Intent intent = new Intent();
+
+        Bundle extras = getIntent().getExtras();
+
+        if (extras != null){
+            int num = extras.getInt("position");
+            textView.setText("Seleccionó la imágen número: "+ num);
+        }else{
+            Toast.makeText(getBaseContext(), "no viene extra", Toast.LENGTH_SHORT).show();
+        }
+    }
+    }
