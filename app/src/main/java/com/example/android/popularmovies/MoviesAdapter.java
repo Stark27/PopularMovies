@@ -88,6 +88,7 @@ public class MoviesAdapter extends BaseAdapter {
             //Temporarily have a placeholder in case it's slow to load
 
             Picasso.with(context).load(imageURL).placeholder(R.drawable.img1).into(holder.thumbnailImageView);
+
         }else{
             //If there is no cover ID in the object, use placeholder
             holder.thumbnailImageView.setImageResource(R.drawable.img1);
@@ -95,6 +96,8 @@ public class MoviesAdapter extends BaseAdapter {
 
         return row;
     }
+
+
 
     /*private Integer[] movies = {
             R.drawable.img1,

@@ -55,14 +55,22 @@ public class MoviesFragment extends Fragment {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 int num = position + 1;
+
+                JSONObject moviesObject = (JSONObject) mAdapter.getItem(position);
+
+                try {
+                    new JSONObject("string");
+                }catch (JSONException e){
+                    e.printStackTrace();
+                }
+
                 Bundle bundle = new Bundle();
                 bundle.putInt("position", num);
-
-                //MoviesAdapter moviesAdapter = (MoviesAdapter) parent.getItemAtPosition(position)
+                bundle.putString("algo", moviesObject.toString());
 
                 Intent intent = new Intent(getActivity(), MovieDetail.class);
-                //intent.putExtra(MovieDetail.)
                 intent.putExtras(bundle);
                 startActivity(intent);
 
@@ -119,7 +127,10 @@ public class MoviesFragment extends Fragment {
                         JSONArray results = new JSONArray();
 
                         results = jsonObject.getJSONArray(RESULTS);
-                        gridView.setAdapter(new MoviesAdapter(getContext(), results, R.layout.row_movies));
+
+                        mAdapter = new MoviesAdapter(getContext(), results, R.layout.row_movies);
+
+                        gridView.setAdapter(mAdapter);
 
 
                         /*
