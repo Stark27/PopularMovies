@@ -90,7 +90,7 @@ public class MovieDetail extends AppCompatActivity {
 
 
         }else{
-            Toast.makeText(getBaseContext(), "no viene extra", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getBaseContext(), "no viene campo extra!!!", Toast.LENGTH_SHORT).show();
         }
 
         buttonFavorite.setOnClickListener(new View.OnClickListener() {
@@ -104,7 +104,7 @@ public class MovieDetail extends AppCompatActivity {
                 editor.commit();
 
 
-                Toast.makeText(getApplicationContext(), "Save as favorite!!!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Guardado como favorito!!", Toast.LENGTH_SHORT).show();
             }
         });
 
