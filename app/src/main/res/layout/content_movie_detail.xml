@@ -64,6 +64,17 @@
                 android:onClick="favoriteMovie"
                 android:padding="5dp"/>
 
+            <Button
+                android:id="@+id/buttonFavorite2"
+                android:text="@string/text_button_favorite"
+                android:textSize="10dp"
+                android:textColor="#515A5A"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#76D7C4"
+                android:onClick="favoriteMovie2"
+                android:padding="5dp"/>
+
         </LinearLayout>
 
     </LinearLayout>

@@ -1,5 +1,6 @@
 package com.example.android.popularmovies;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -33,12 +34,13 @@ public class MovieDetail extends AppCompatActivity {
 
 
         //TextView textView = (TextView) findViewById(R.id.textView);
-        TextView textView2 = (TextView) findViewById(R.id.nameMovie);
+        final TextView textView2 = (TextView) findViewById(R.id.nameMovie);
         TextView textView3 = (TextView) findViewById(R.id.descriptionMovie);
         ImageView imageDetail = (ImageView) findViewById(R.id.imageDetail);
         TextView anioTextView = (TextView) findViewById(R.id.anioMovie);
         TextView dataTexView = (TextView) findViewById(R.id.data);
         Button buttonFavorite = (Button) findViewById(R.id.buttonFavorite);
+        Button buttonFavorite2 = (Button) findViewById(R.id.buttonFavorite2);
         //Intent intent = new Intent();
 
         Bundle extras = getIntent().getExtras();
@@ -94,11 +96,29 @@ public class MovieDetail extends AppCompatActivity {
         buttonFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences prefs = getSharedPreferences("myPreferences", CONTEXT_RESTRICTED);
+                SharedPreferences.Editor editor = prefs.edit();
+                String nameMovie = textView2.getText().toString();
+
+                editor.putString("moviesName", nameMovie);
+                editor.commit();
 
 
-                Toast.makeText(getApplicationContext(), "Save as favorite", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Save as favorite!!!", Toast.LENGTH_SHORT).show();
             }
         });
+
+        buttonFavorite2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences prefs = getSharedPreferences("myPreferences", CONTEXT_RESTRICTED);
+                String nameMovie = prefs.getString("moviesName", "");
+                Toast.makeText(getApplicationContext(), nameMovie, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
     }
 
 
